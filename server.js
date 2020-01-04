@@ -5,8 +5,10 @@ const app = express()
 
 const port = process.env.port || 3001
 
-app.use(express.static(__dirname,'public'))
+app.use(express.static(path.join(__dirname,'public')))
 
 app.get('',(req,res) => {
     res.sendFile('index.html')
 })
+
+app.listen(port,() => console.log('Server on port ' + port))
