@@ -20,4 +20,8 @@ app.get('',(req,res) => {
     })
 })
 
+app.get('/users',(req,res) => {
+    res.send('YOLO')
+})
+
 app.listen(port,() => console.log('Server on port ' + port))
