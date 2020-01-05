@@ -23,10 +23,9 @@ app.get('/users',(req,res) => {
     // res.sendFile('index.html')
     client.connect()
 
-    client
-        .query('SELECT NOW() as now')
-        .then(response => res.send(response.rows[0]))
-        .catch(e => console.error(e.stack))
+    client.query('SELECT NOW()', (err, response) => {
+        res.send(response)
+        client.end()
 })
 
 app.listen(port,() => console.log('Server on port ' + port))
