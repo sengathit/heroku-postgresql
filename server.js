@@ -10,14 +10,7 @@ const port = process.env.PORT || 3001
 app.use(express.static(path.join(__dirname,'public')))
 
 app.get('',(req,res) => {
-    // res.sendFile('index.html')
-    client.connect()
-
-    client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
-        console.log(err ? err.stack : res.rows[0].message) // Hello World!
-        res.send(res.rows)
-        client.end()
-    })
+    res.send('NOPE')
 })
 
 app.get('/users',(req,res) => {
