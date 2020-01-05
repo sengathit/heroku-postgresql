@@ -9,7 +9,7 @@ const port = process.env.PORT || 3001
 
 app.use(express.static(path.join(__dirname,'public')))
 
-app.get('',(req,res) => {
+app.get('/',(req,res) => {
     res.send('NOPE')
 })
 
