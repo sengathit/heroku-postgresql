@@ -23,8 +23,8 @@ app.get('/users',(req,res) => {
     // res.sendFile('index.html')
     client.connect()
 
-    client.query('SELECT NOW()', (err, response) => {
-        console.log(err, response)
+    client.query('SELECT * FROM users', (err, response) => {
+        res.send(response.rows[0])
         client.end()
     })
 })
