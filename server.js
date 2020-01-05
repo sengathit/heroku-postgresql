@@ -9,12 +9,24 @@ const port = process.env.PORT || 3001
 
 app.use(express.static(path.join(__dirname,'public')))
 
-app.get('/',(req,res) => {
-    res.send('NOPE')
+app.get('',(req,res) => {
+    // res.sendFile('index.html')
+    client.connect()
+
+    client
+        .query('SELECT NOW() as now')
+        .then(response => res.send(response.rows[0]))
+        .catch(e => console.error(e.stack))
 })
 
 app.get('/users',(req,res) => {
-    res.send('YOLO')
+    // res.sendFile('index.html')
+    client.connect()
+
+    client
+        .query('SELECT NOW() as now')
+        .then(response => res.send(response.rows[0]))
+        .catch(e => console.error(e.stack))
 })
 
 app.listen(port,() => console.log('Server on port ' + port))
