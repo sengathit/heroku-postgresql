@@ -24,7 +24,7 @@ app.get('/users',(req,res) => {
     client.connect()
 
     client.query('SELECT NOW()', (err, response) => {
-        res.send(response)
+        console.log(err, response)
         client.end()
     })
 })
