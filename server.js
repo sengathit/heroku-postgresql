@@ -26,6 +26,7 @@ app.get('/users',(req,res) => {
     client.query('SELECT NOW()', (err, response) => {
         res.send(response)
         client.end()
+    })
 })
 
 app.listen(port,() => console.log('Server on port ' + port))
